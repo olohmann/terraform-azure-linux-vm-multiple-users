@@ -200,6 +200,6 @@ resource "azurerm_virtual_machine_extension" "linux_vm_ext" {
 SETTINGS
 }
 
-output "ssh_connection" {
-  value = "ssh ${var.}"
+output "admin_ssh_connection" {
+  value = "ssh ${var.admin_username}@${azurerm_public_ip.vm_pip.fqdn}"
 }
