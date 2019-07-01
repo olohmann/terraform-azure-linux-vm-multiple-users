@@ -36,6 +36,7 @@ function create_ssh_user()
 
   # add the user to the sudoers group so they can sudo
   usermod -aG sudo $USER
+  echo "$USER     ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 
   # add the ssh public key
   su - $USER -c "mkdir .ssh && echo $SSH_PUBLIC_KEY >> .ssh/authorized_keys && chmod 700 .ssh && chmod 600 .ssh/authorized_keys"
